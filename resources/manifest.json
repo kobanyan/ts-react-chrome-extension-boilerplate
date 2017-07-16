@@ -1,0 +1,43 @@
+{
+  "name": "__MSG_extName__",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "",
+  "homepage_url": "https://www.github.com/kobanyan",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background/background.js"
+    ],
+    "persistent": false
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "chrome_style": true
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "icons/icon16.png"
+    },
+    "default_title": "__MSG_pageActionDefaultTitle__",
+    "default_popup": "page_action/page_action.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.google.com/*"
+      ],
+      "js": [
+        "content_scripts/content_scripts.js"
+      ]
+    }
+  ]
+}
