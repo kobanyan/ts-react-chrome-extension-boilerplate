@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 import copyWebpackPlugin from 'copy-webpack-plugin';
+const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 export = {
   entry: {
     background: './src/background/index.ts',
@@ -53,5 +54,9 @@ export = {
     ]),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin(),
+    new UnusedFilesWebpackPlugin({
+      patterns: ['src/**/*.*'],
+      failOnUnused: true,
+    }),
   ],
 };

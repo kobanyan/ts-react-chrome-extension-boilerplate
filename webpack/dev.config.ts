@@ -1,5 +1,6 @@
 import * as path from 'path';
 import copyWebpackPlugin from 'copy-webpack-plugin';
+const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 export = {
   entry: {
     background: './src/background/index.ts',
@@ -51,5 +52,8 @@ export = {
         },
       },
     ]),
+    new UnusedFilesWebpackPlugin({
+      patterns: ['src/**/*.*'],
+    }),
   ],
 };
