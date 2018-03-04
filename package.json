@@ -21,6 +21,7 @@
     "@types/shelljs": "^0.7.8",
     "@types/webpack": "^3.8.8",
     "awesome-typescript-loader": "^3.2.1",
+    "circular-dependency-plugin": "^4.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "crx": "^3.2.1",
     "file-loader": "^0.11.2",
