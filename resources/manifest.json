@@ -10,13 +10,9 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage"],
   "background": {
-    "scripts": [
-      "background/background.js"
-    ],
+    "scripts": ["background/background.js"],
     "persistent": false
   },
   "options_ui": {
@@ -32,12 +28,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://*.google.com/*"
-      ],
-      "js": [
-        "content_scripts/content_scripts.js"
-      ]
+      "matches": ["https://*.google.com/*"],
+      "js": ["content_scripts/content_scripts.js"]
     }
   ]
 }

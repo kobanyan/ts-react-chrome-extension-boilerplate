@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 const PageAction = () => {
   return (
     <div>
-       <p>{chrome.i18n.getMessage('pageAction')}</p>
+      <p>{chrome.i18n.getMessage('pageAction')}</p>
     </div>
   );
 };

@@ -1,7 +1,0 @@
-const path = require('path')
-const rimraf = require('rimraf')
-const shell = require('shelljs')
-rimraf.sync(path.resolve(__dirname, '../build/dev'), {})
-shell.exec('standard')
-shell.exec('standard --parser typescript-eslint-parser --plugin typescript *.ts *.tsx')
-shell.exec('webpack --config ./webpack/dev.config.js --progress --profile --colors --watch')

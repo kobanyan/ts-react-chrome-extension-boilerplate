@@ -13,52 +13,49 @@ class Options extends React.Component<{}, OptionsState> {
     this.state = {
       favoriteColor: 'red',
       likesColor: false,
-      status: ''
+      status: '',
     };
   }
   componentDidMount() {
     chrome.storage.sync.get(
       {
         favoriteColor: 'red',
-        likesColor: false
+        likesColor: false,
       },
       items => {
         this.setState({
           favoriteColor: items.favoriteColor,
-          likesColor: items.likesColor
+          likesColor: items.likesColor,
         });
       }
     );
   }
   changeFavoliteColor(event: React.ChangeEvent<HTMLSelectElement>) {
     this.setState({
-      favoriteColor: event.currentTarget.value
+      favoriteColor: event.currentTarget.value,
     });
   }
   changeLikesColor(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
-      likesColor: event.currentTarget.checked
+      likesColor: event.currentTarget.checked,
     });
   }
   save(event: React.MouseEvent<HTMLButtonElement>) {
     chrome.storage.sync.set(
       {
         favoriteColor: this.state.favoriteColor,
-        likesColor: this.state.likesColor
+        likesColor: this.state.likesColor,
       },
       () => {
         // Update status to let user know options were saved.
         this.setState({
-          status: chrome.i18n.getMessage('optionsStatus')
+          status: chrome.i18n.getMessage('optionsStatus'),
         });
-        setTimeout(
-          () => {
-            this.setState({
-              status: ''
-            });
-          },
-          750
-        );
+        setTimeout(() => {
+          this.setState({
+            status: '',
+          });
+        }, 750);
       }
     );
   }
@@ -73,11 +70,13 @@ class Options extends React.Component<{}, OptionsState> {
           <option value="yellow">{chrome.i18n.getMessage('optionsColorsYellow')}</option>
         </select>
         <label>
-          <input type="checkbox" id="like" checked={this.state.likesColor} onChange={e => this.changeLikesColor(e)}/>
+          <input type="checkbox" id="like" checked={this.state.likesColor} onChange={e => this.changeLikesColor(e)} />
           {chrome.i18n.getMessage('optionsLikesColor')}
         </label>
         <div id="status">{this.state.status}</div>
-        <button id="save" onClick={e => this.save(e)}>{chrome.i18n.getMessage('optionsSave')}</button>
+        <button id="save" onClick={e => this.save(e)}>
+          {chrome.i18n.getMessage('optionsSave')}
+        </button>
       </section>
     );
   }

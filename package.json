@@ -1,44 +1,37 @@
 {
   "name": "ts-react-chrome-extension-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "kobanyan",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/kobanyan/ts-react-chrome-extension-boilerplate.git"
   },
-  "keywords": [
-    "typescript",
-    "react",
-    "chrome",
-    "extension",
-    "boilerplate",
-    "webpack"
-  ],
+  "keywords": ["typescript", "react", "chrome", "extension", "boilerplate", "webpack"],
   "scripts": {
-    "dev": "node ./scripts/dev.js",
-    "prod": "node ./scripts/prod.js"
+    "dev": "ts-node ./scripts/dev.ts",
+    "prod": "ts-node ./scripts/prod.ts"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.47",
+    "@types/copy-webpack-plugin": "^4.4.0",
     "@types/react": "^15.0.38",
     "@types/react-dom": "^15.5.1",
+    "@types/rimraf": "^2.0.2",
+    "@types/shelljs": "^0.7.8",
+    "@types/webpack": "^3.8.8",
     "awesome-typescript-loader": "^3.2.1",
     "copy-webpack-plugin": "^4.0.1",
     "crx": "^3.2.1",
-    "eslint": "^4.2.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-typescript": "^0.3.0",
     "file-loader": "^0.11.2",
+    "husky": "^0.15.0-rc.8",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1",
     "react-hot-loader": "^1.3.1",
     "rimraf": "^2.6.1",
     "shelljs": "^0.7.8",
     "source-map-loader": "^0.2.1",
-    "standard": "^10.0.2",
+    "ts-node": "^5.0.1",
     "tslint": "^5.5.0",
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.0.0",
@@ -51,13 +44,18 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
-  "standard": {
-    "ignore": [
-      "build",
-      "dist",
-      "node_modules",
-      "pem",
-      "resources"
-    ]
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": ["prettier --parser typescript --write", "git add"],
+    "*.json": ["prettier --parser json --write", "git add"]
   }
 }

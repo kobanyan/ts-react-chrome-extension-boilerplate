@@ -14,16 +14,6 @@
     "noImplicitAny": true,
     "strictNullChecks": true
   },
-  "exclude": [
-    "build",
-    "dist",
-    "node_modules",
-    "pem",
-    "resources",
-    "scripts",
-    "webpack"
-  ],
-  "types": [
-    "typePatches"
-  ]
+  "exclude": ["build", "dist", "node_modules", "pem", "resources", "scripts", "webpack"],
+  "types": ["typePatches"]
 }
