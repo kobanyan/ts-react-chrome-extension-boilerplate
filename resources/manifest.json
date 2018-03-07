@@ -1,6 +1,6 @@
 {
   "name": "__MSG_extName__",
-  "version": "0.0.1",
+  "version": "${version}",
   "manifest_version": 2,
   "description": "",
   "homepage_url": "https://www.github.com/kobanyan",

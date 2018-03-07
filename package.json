@@ -1,16 +1,23 @@
 {
   "name": "ts-react-chrome-extension-boilerplate",
+  "description": "Boilerplate to create a chrome extension with TypeScript and React.",
+  "homepage": "https://github.com/kobanyan/ts-react-chrome-extension-boilerplate#readme",
   "version": "0.0.2",
-  "author": "kobanyan",
-  "license": "MIT",
+  "main": "",
+  "author": {
+    "name": "kobanyan"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kobanyan/ts-react-chrome-extension-boilerplate.git"
+    "url": "git+https://github.com/kobanyan/ts-react-chrome-extension-boilerplate.git"
   },
-  "keywords": ["typescript", "react", "chrome", "extension", "boilerplate", "webpack"],
-  "scripts": {
-    "dev": "ts-node ./scripts/dev.ts",
-    "prod": "ts-node ./scripts/prod.ts"
+  "bugs": {
+    "url": "https://github.com/kobanyan/ts-react-chrome-extension-boilerplate/issues"
+  },
+  "keywords": ["boilerplate", "chrome", "extension", "react", "typescript", "webpack"],
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.47",
@@ -21,6 +28,9 @@
     "@types/shelljs": "^0.7.8",
     "@types/webpack": "^3.8.8",
     "awesome-typescript-loader": "4.0.0",
+    "bumped": "^0.10.9",
+    "bumped-finepack": "^0.2.9",
+    "bumped-terminal": "^0.7.3",
     "circular-dependency-plugin": "^4.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "crx": "^3.2.1",
@@ -42,15 +52,11 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.5.1"
   },
-  "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+  "scripts": {
+    "dev": "ts-node ./scripts/dev.ts",
+    "prod": "ts-node ./scripts/prod.ts"
   },
-  "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
+  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -59,5 +65,10 @@
   "lint-staged": {
     "*.{ts,tsx}": ["prettier --parser typescript --write", "git add"],
     "*.json": ["prettier --parser json --write", "git add"]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
