@@ -2,7 +2,7 @@
   "name": "ts-react-chrome-extension-boilerplate",
   "description": "Boilerplate to create a chrome extension with TypeScript and React.",
   "homepage": "https://github.com/kobanyan/ts-react-chrome-extension-boilerplate#readme",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "",
   "author": {
     "name": "kobanyan"
