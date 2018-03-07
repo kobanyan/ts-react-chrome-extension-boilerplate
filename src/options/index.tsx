@@ -8,8 +8,8 @@ interface OptionsState {
 }
 
 class Options extends React.Component<{}, OptionsState> {
-  constructor() {
-    super();
+  constructor(props: {}) {
+    super(props);
     this.state = {
       favoriteColor: 'red',
       likesColor: false,
