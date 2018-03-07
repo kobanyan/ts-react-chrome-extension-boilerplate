@@ -34,6 +34,7 @@ export = {
         loader: 'tslint-loader',
         options: {
           typeCheck: true,
+          emitErrors: true,
         },
       },
     ],
