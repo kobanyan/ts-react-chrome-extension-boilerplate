@@ -10,7 +10,7 @@ export = {
     page_action: './src/page_action/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, '../build/dev'),
+    path: path.resolve(__dirname, '../build/lib'),
     filename: '[name]/[name].js',
   },
   devtool: 'source-map',
@@ -22,9 +22,6 @@ export = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
-        options: {
-          configFileName: './tsconfig/dev.json',
-        },
       },
       {
         enforce: 'pre',

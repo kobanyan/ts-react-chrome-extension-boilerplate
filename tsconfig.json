@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "../build/dev",
+    "outDir": "./build/lib",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom"],
@@ -8,7 +8,7 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "../src",
+    "rootDir": "./src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
