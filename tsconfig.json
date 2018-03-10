@@ -8,9 +8,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "noImplicitAny": true
   },
-  "exclude": ["build", "dist", "node_modules", "pem", "resources", "scripts", "webpack"],
+  "exclude": ["build", "dist", "node_modules", "pem", "resources", "scripts", "webpack", "**/__tests__/*"],
   "types": ["typePatches"]
 }

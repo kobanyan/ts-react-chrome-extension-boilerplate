@@ -22,10 +22,18 @@
   "devDependencies": {
     "@types/chrome": "^0.0.60",
     "@types/copy-webpack-plugin": "^4.4.0",
+    "@types/enzyme": "^3.1.9",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/jest": "^22.2.0",
+    "@types/jsdom": "^11.0.4",
+    "@types/puppeteer": "^1.1.0",
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
+    "@types/react-test-renderer": "^16.0.1",
     "@types/rimraf": "^2.0.2",
     "@types/shelljs": "^0.7.8",
+    "@types/sinon": "^4.3.0",
+    "@types/sinon-chrome": "^2.2.0",
     "@types/webpack": "^3.8.8",
     "awesome-typescript-loader": "4.0.0",
     "bumped": "^0.10.9",
@@ -34,15 +42,24 @@
     "circular-dependency-plugin": "^4.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "crx": "^3.2.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "file-loader": "^0.11.2",
     "gts": "^0.5.4",
     "husky": "^0.15.0-rc.8",
+    "jest": "^22.4.2",
+    "jsdom": "^11.6.2",
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
+    "puppeteer": "^1.1.1",
     "react-hot-loader": "^1.3.1",
+    "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.1",
     "shelljs": "^0.7.8",
+    "sinon": "^4.4.2",
+    "sinon-chrome": "^2.3.1",
     "source-map-loader": "^0.2.1",
+    "ts-jest": "^22.4.1",
     "ts-node": "^5.0.1",
     "tslint": "^5.9.0",
     "tslint-loader": "^3.6.0",
@@ -54,13 +71,22 @@
   },
   "scripts": {
     "dev": "ts-node ./scripts/dev.ts",
-    "prod": "ts-node ./scripts/prod.ts"
+    "prod": "ts-node ./scripts/prod.ts",
+    "test": "jest --collectCoverage --testRegex '\\.test\\.tsx?$'",
+    "e2e": "jest --testRegex '\\.spec\\.tsx?$'"
   },
   "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "collectCoverageFrom": ["src/**/*.ts?(x)"]
   },
   "lint-staged": {
     "*.{ts,tsx}": ["prettier --parser typescript --write", "git add"],

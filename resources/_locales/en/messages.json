@@ -3,6 +3,10 @@
     "message": "Extension boilerplate",
     "description": "Extension name."
   },
+  "pageActionDefaultTitle": {
+    "message": "Click THIS!",
+    "description": "Label of tooltip."
+  },
   "optionsFavoriteColor": {
     "message": "Favorite color:",
     "description": "Label of favorite color in options."

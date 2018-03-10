@@ -1,12 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-const PageAction = () => {
-  return (
-    <div>
-      <p>{chrome.i18n.getMessage('pageAction')}</p>
-    </div>
-  );
-};
+import { PageAction } from './PageAction';
 
 ReactDOM.render(<PageAction />, document.getElementById('app'));
