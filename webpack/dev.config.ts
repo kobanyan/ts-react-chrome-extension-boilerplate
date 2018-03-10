@@ -53,6 +53,9 @@ export = {
     ]),
     new UnusedFilesWebpackPlugin({
       patterns: ['src/**/*.*'],
+      globOptions: {
+        ignore: ['node_modules/**/*', '**/__tests__/**/*'],
+      },
     }),
     new CircularDependencyPlugin({
       // exclude detection of files based on a RegExp

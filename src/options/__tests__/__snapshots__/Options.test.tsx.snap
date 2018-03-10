@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Options should match snapshot 1`] = `
+<section>
+  mocked: optionsFavoriteColor
+  <select
+    id="color"
+    onChange={[Function]}
+    value="red"
+  >
+    <option
+      value="red"
+    >
+      mocked: optionsColorsRed
+    </option>
+    <option
+      value="green"
+    >
+      mocked: optionsColorsGreen
+    </option>
+    <option
+      value="blue"
+    >
+      mocked: optionsColorsBlue
+    </option>
+    <option
+      value="yellow"
+    >
+      mocked: optionsColorsYellow
+    </option>
+  </select>
+  <label>
+    <input
+      checked={false}
+      id="like"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    mocked: optionsLikesColor
+  </label>
+  <div
+    id="status"
+  >
+    
+  </div>
+  <button
+    id="save"
+    onClick={[Function]}
+  >
+    mocked: optionsSave
+  </button>
+</section>
+`;
