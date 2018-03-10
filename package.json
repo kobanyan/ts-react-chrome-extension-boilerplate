@@ -72,7 +72,7 @@
   "scripts": {
     "dev": "ts-node ./scripts/dev.ts",
     "prod": "ts-node ./scripts/prod.ts",
-    "test": "jest --collectCoverage --testRegex '\\.test\\.tsx?$'",
+    "test": "yarn prod && jest --collectCoverage --testRegex '\\.test\\.tsx?$'",
     "e2e": "jest --testRegex '\\.spec\\.tsx?$'"
   },
   "license": "MIT",
@@ -86,7 +86,8 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-    "collectCoverageFrom": ["src/**/*.ts?(x)"]
+    "collectCoverageFrom": ["src/**/*.ts?(x)"],
+    "coveragePathIgnorePatterns": ["/__tests__/"]
   },
   "lint-staged": {
     "*.{ts,tsx}": ["prettier --parser typescript --write", "git add"],

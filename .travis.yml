@@ -1,0 +1,19 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+language: node_js
+node_js:
+  "node"
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - yarn add --dev coveralls
+script:
+  - yarn test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - yarn e2e
