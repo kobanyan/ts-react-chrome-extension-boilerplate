@@ -14,7 +14,14 @@
   "bugs": {
     "url": "https://github.com/kobanyan/ts-react-chrome-extension-boilerplate/issues"
   },
-  "keywords": ["boilerplate", "chrome", "extension", "react", "typescript", "webpack"],
+  "keywords": [
+    "boilerplate",
+    "chrome",
+    "extension",
+    "react",
+    "typescript",
+    "webpack"
+  ],
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
@@ -68,12 +75,12 @@
     "webpack": "^3.8.1"
   },
   "scripts": {
-    "start": "ts-node ./scripts/dev.ts",
-    "test-watch": "jest --watch --testRegex '\\.test\\.tsx?$'",
     "dev": "npm-run-all --parallel start test-watch",
+    "e2e": "jest --testRegex '\\.spec\\.tsx?$'",
     "prod": "ts-node ./scripts/prod.ts",
+    "start": "ts-node ./scripts/dev.ts",
     "test": "jest --collectCoverage --testRegex '\\.test\\.tsx?$'",
-    "e2e": "jest --testRegex '\\.spec\\.tsx?$'"
+    "test-watch": "jest --watch --testRegex '\\.test\\.tsx?$'"
   },
   "license": "MIT",
   "husky": {
@@ -82,20 +89,32 @@
     }
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts?(x)"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/__tests__/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "node",
+      "ts",
+      "tsx"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
-    },
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-    "collectCoverageFrom": ["src/**/*.ts?(x)"],
-    "coveragePathIgnorePatterns": ["/__tests__/"]
+    }
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["prettier --parser typescript --write", "git add"],
-    "*.json": ["prettier --parser json --write", "git add"]
-  },
-  "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "*.{ts,tsx}": [
+      "prettier --parser typescript --write",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --parser json --write",
+      "git add"
+    ]
   }
 }
