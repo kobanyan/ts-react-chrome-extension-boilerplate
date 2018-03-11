@@ -15,5 +15,6 @@ before_script:
   - sleep 3 # give xvfb some time to start
   - yarn add --dev coveralls codeclimate-test-reporter
 script:
+  - yarn prod
   - yarn test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info
   - yarn e2e
