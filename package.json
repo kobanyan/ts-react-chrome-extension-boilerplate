@@ -24,7 +24,12 @@
   ],
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-persist": "^5.9.1",
+    "typescript-fsa": "^2.5.0",
+    "typescript-fsa-reducers": "^0.4.5"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.60",
@@ -36,7 +41,9 @@
     "@types/puppeteer": "^1.1.0",
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
+    "@types/react-redux": "^5.0.15",
     "@types/react-test-renderer": "^16.0.1",
+    "@types/redux": "^3.6.0",
     "@types/rimraf": "^2.0.2",
     "@types/shelljs": "^0.7.8",
     "@types/sinon": "^4.3.0",

@@ -38,16 +38,5 @@ exports[`Options should match snapshot 1`] = `
     />
     mocked: optionsLikesColor
   </label>
-  <div
-    id="status"
-  >
-    
-  </div>
-  <button
-    id="save"
-    onClick={[Function]}
-  >
-    mocked: optionsSave
-  </button>
 </section>
 `;
