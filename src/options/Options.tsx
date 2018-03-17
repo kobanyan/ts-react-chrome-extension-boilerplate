@@ -1,82 +1,67 @@
 import * as React from 'react';
+import { Action } from 'redux';
+import { connect, Dispatch } from 'react-redux';
 
-export interface OptionsState {
-  favoriteColor: string;
-  likesColor: boolean;
-  status: string;
+import { RootState } from './store';
+import { State, updateFavoriteColor, updateLikesColor } from './module';
+
+interface OptionsProps {
+  values: State;
+  actions: ActionDispatcher;
 }
 
-export class Options extends React.Component<{}, OptionsState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      favoriteColor: 'red',
-      likesColor: false,
-      status: '',
-    };
+class ActionDispatcher {
+  constructor(private dispatch: (action: Action) => void) {}
+  updateFavoriteColor(favoriteColor: string) {
+    this.dispatch(updateFavoriteColor(favoriteColor));
   }
-  componentDidMount() {
-    chrome.storage.sync.get(
-      {
-        favoriteColor: 'red',
-        likesColor: false,
-      },
-      items => {
-        this.setState({
-          favoriteColor: items.favoriteColor,
-          likesColor: items.likesColor,
-        });
-      }
-    );
-  }
-  changeFavoriteColor(event: React.ChangeEvent<HTMLSelectElement>) {
-    this.setState({
-      favoriteColor: event.currentTarget.value,
-    });
-  }
-  changeLikesColor(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      likesColor: event.currentTarget.checked,
-    });
-  }
-  save(event: React.MouseEvent<HTMLButtonElement>) {
-    chrome.storage.sync.set(
-      {
-        favoriteColor: this.state.favoriteColor,
-        likesColor: this.state.likesColor,
-      },
-      () => {
-        // Update status to let user know options were saved.
-        this.setState({
-          status: chrome.i18n.getMessage('optionsStatus'),
-        });
-        setTimeout(() => {
-          this.setState({
-            status: '',
-          });
-        }, 750);
-      }
-    );
-  }
-  render() {
-    return (
-      <section>
-        {chrome.i18n.getMessage('optionsFavoriteColor')}
-        <select id="color" value={this.state.favoriteColor} onChange={e => this.changeFavoriteColor(e)}>
-          <option value="red">{chrome.i18n.getMessage('optionsColorsRed')}</option>
-          <option value="green">{chrome.i18n.getMessage('optionsColorsGreen')}</option>
-          <option value="blue">{chrome.i18n.getMessage('optionsColorsBlue')}</option>
-          <option value="yellow">{chrome.i18n.getMessage('optionsColorsYellow')}</option>
-        </select>
-        <label>
-          <input type="checkbox" id="like" checked={this.state.likesColor} onChange={e => this.changeLikesColor(e)} />
-          {chrome.i18n.getMessage('optionsLikesColor')}
-        </label>
-        <div id="status">{this.state.status}</div>
-        <button id="save" onClick={e => this.save(e)}>
-          {chrome.i18n.getMessage('optionsSave')}
-        </button>
-      </section>
-    );
+  updateLikesColor(likesColor: boolean) {
+    this.dispatch(updateLikesColor(likesColor));
   }
 }
+
+const FavoriteColor: React.SFC<OptionsProps> = props => {
+  return (
+    <>
+      {chrome.i18n.getMessage('optionsFavoriteColor')}
+      <select
+        id="color"
+        value={props.values.favoriteColor}
+        onChange={e => props.actions.updateFavoriteColor(e.currentTarget.value)}
+      >
+        <option value="red">{chrome.i18n.getMessage('optionsColorsRed')}</option>
+        <option value="green">{chrome.i18n.getMessage('optionsColorsGreen')}</option>
+        <option value="blue">{chrome.i18n.getMessage('optionsColorsBlue')}</option>
+        <option value="yellow">{chrome.i18n.getMessage('optionsColorsYellow')}</option>
+      </select>
+    </>
+  );
+};
+
+const LikesColor: React.SFC<OptionsProps> = props => {
+  return (
+    <label>
+      <input
+        type="checkbox"
+        id="like"
+        checked={props.values.likesColor}
+        onChange={e => props.actions.updateLikesColor(e.currentTarget.checked)}
+      />
+      {chrome.i18n.getMessage('optionsLikesColor')}
+    </label>
+  );
+};
+
+const Options: React.SFC<OptionsProps> = props => {
+  return (
+    <section>
+      <FavoriteColor {...props} />
+      <LikesColor {...props} />
+    </section>
+  );
+};
+
+export const options = connect(
+  (state: RootState) => ({ values: state.options }),
+  (dispatch: Dispatch<Action>) => ({ actions: new ActionDispatcher(dispatch) })
+)(Options);

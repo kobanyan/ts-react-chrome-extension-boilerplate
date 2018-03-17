@@ -60,11 +60,4 @@ describe('options page', () => {
     const likeHandle = await like!.getProperty('checked');
     expect(await likeHandle.jsonValue()).toEqual(true);
   });
-  // it('should show the message after clicking save', async () => {
-  //   await page.click('#save');
-  //   // https://github.com/GoogleChrome/puppeteer/issues/1229
-  //   const status = await page.waitForSelector('#status', {visible: true});
-  //   const statusHandle = await status.getProperty('text');
-  //   expect(await statusHandle.jsonValue()).toEqual('Options saved.');
-  // });
 });
