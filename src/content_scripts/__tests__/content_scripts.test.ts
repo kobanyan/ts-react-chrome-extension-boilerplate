@@ -1,13 +1,6 @@
 import * as chrome from 'sinon-chrome';
 
 describe('content_scripts', () => {
-  beforeAll(() => {
-    global.chrome = chrome;
-  });
-  afterAll(() => {
-    chrome.flush();
-    delete global.chrome;
-  });
   beforeEach(() => {
     chrome.runtime.sendMessage.flush();
   });
