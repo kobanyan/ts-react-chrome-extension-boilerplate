@@ -9,7 +9,7 @@ import {
   copyPlugin,
   unusedFilesPlugin,
   circularDependencyPlugin,
-} from './com.config';
+} from './lib';
 
 const config: webpack.Configuration = {
   entry,
