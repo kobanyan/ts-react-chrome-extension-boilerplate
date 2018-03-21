@@ -2,7 +2,7 @@
 
 exports[`Options should match snapshot 1`] = `
 <section>
-  mocked: optionsFavoriteColor
+  Favorite color:
   <select
     id="color"
     onChange={[Function]}
@@ -11,22 +11,22 @@ exports[`Options should match snapshot 1`] = `
     <option
       value="red"
     >
-      mocked: optionsColorsRed
+      red
     </option>
     <option
       value="green"
     >
-      mocked: optionsColorsGreen
+      green
     </option>
     <option
       value="blue"
     >
-      mocked: optionsColorsBlue
+      blue
     </option>
     <option
       value="yellow"
     >
-      mocked: optionsColorsYellow
+      yellow
     </option>
   </select>
   <label>
@@ -36,7 +36,7 @@ exports[`Options should match snapshot 1`] = `
       onChange={[Function]}
       type="checkbox"
     />
-    mocked: optionsLikesColor
+    I like colors.
   </label>
 </section>
 `;

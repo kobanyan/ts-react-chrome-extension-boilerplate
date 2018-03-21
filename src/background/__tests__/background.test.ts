@@ -1,13 +1,6 @@
 import * as chrome from 'sinon-chrome';
 
 describe('background', () => {
-  beforeAll(() => {
-    global.chrome = chrome;
-  });
-  afterAll(() => {
-    chrome.flush();
-    delete global.chrome;
-  });
   beforeEach(() => {
     chrome.runtime.sendMessage.flush();
     chrome.pageAction.show.flush();

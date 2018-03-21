@@ -11,6 +11,17 @@
     "noImplicitAny": true,
     "noUnusedLocals": true
   },
-  "exclude": ["build", "dist", "node_modules", "pem", "resources", "scripts", "webpack", "**/__tests__/*"],
+  "exclude": [
+    "build",
+    "dist",
+    "node_modules",
+    "pem",
+    "resources",
+    "scripts",
+    "types",
+    "webpack",
+    "__setup__",
+    "**/__tests__/*"
+  ],
   "types": ["typePatches"]
 }

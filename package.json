@@ -61,6 +61,7 @@
     "gts": "^0.5.4",
     "husky": "^0.15.0-rc.8",
     "jest": "^22.4.2",
+    "jest-puppeteer": "^2.2.0",
     "jsdom": "^11.6.2",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.1.2",
@@ -83,11 +84,11 @@
   },
   "scripts": {
     "dev": "npm-run-all --parallel start test-watch",
-    "e2e": "jest --testRegex '\\.spec\\.tsx?$'",
+    "e2e": "jest --testRegex '\\.spec\\.tsx?$' --preset 'jest-puppeteer'",
     "prod": "ts-node ./scripts/prod.ts",
     "start": "ts-node ./scripts/dev.ts",
-    "test": "jest --collectCoverage --testRegex '\\.test\\.tsx?$'",
-    "test-watch": "jest --watch --testRegex '\\.test\\.tsx?$'"
+    "test": "jest --collectCoverage --testRegex '\\.test\\.tsx?$' --setupTestFrameworkScriptFile './__setup__/testSetup.ts'",
+    "test-watch": "jest --watch --testRegex '\\.test\\.tsx?$' --setupTestFrameworkScriptFile './__setup__/testSetup.ts'"
   },
   "license": "MIT",
   "husky": {

@@ -3,7 +3,7 @@
 exports[`Page Action should match snapshot 1`] = `
 <div>
   <p>
-    mocked: pageAction
+    This is a popup of page action!
   </p>
 </div>
 `;
